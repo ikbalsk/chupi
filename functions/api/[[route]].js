@@ -1,4 +1,4 @@
-const J = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { 'content-type': 'application/json' } });
+const J = (b, s = 200) => new Response(JSON.stringify(b), { status: s, headers: { 'content-type': 'application/json', 'cache-control': 'no-store' } });
 const sha = async s => [...new Uint8Array(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)))].map(b => b.toString(16).padStart(2, '0')).join('');
 const RESERVED = ['api', 'inbox', 'admin', 'u', 'chupi', 'login'];
 
@@ -19,9 +19,16 @@ async function setup(DB) {
   ready = true;
 }
 
-export async function onRequest({ request: req, env }) {
+export async function onRequest({ request, env }) {
   if (!env.DB) return J({ error: 'D1 binding named DB is missing. Add it in Pages > Settings > Bindings.' }, 500);
-  await setup(env.DB);
+  try { return await handle(request.clone(), env); }
+  catch (e) {
+    if (/no such table/i.test(String(e))) { await setup(env.DB); return handle(request, env); }
+    return J({ error: 'Server hiccup. Try again.' }, 500);
+  }
+}
+
+async function handle(req, env) {
   {
     const url = new URL(req.url), p = url.pathname, now = Date.now();
     const body = req.method === 'POST' ? await req.json().catch(() => ({})) : {};
