@@ -4,191 +4,187 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Chupi · চুপি</title>
 <meta name="theme-color" content="#15112e">
-<meta property="og:title" content="Tell me something. I'll never know it was you. 🤫">
+<meta property="og:title" content="Say it. Stay unseen. 🤫">
 <meta property="og:description" content="Send me an anonymous message on Chupi.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;800&family=Hind+Siliguri:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--night:#15112e;--ink:#241c4d;--pink:#ff4f8b;--gold:#ffc94a;--paper:#fffaf0;--mute:#b9b2e0}
-*{box-sizing:border-box;margin:0}
-html,body{min-height:100%}
-body{background:radial-gradient(900px 500px at 80% -10%,#3a1d6e 0,transparent 60%),radial-gradient(700px 500px at -10% 110%,#6b1d4f 0,transparent 55%),var(--night);color:#fff;font:400 17px/1.5 'Hind Siliguri',system-ui,sans-serif;padding:max(20px,env(safe-area-inset-top)) 18px max(28px,env(safe-area-inset-bottom));overflow-x:hidden}
+:root{--night:#15112e;--pink:#ff4f8b;--gold:#ffc94a;--paper:#fffaf0;--mute:#b9b2e0}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{background:radial-gradient(700px 420px at 85% -5%,#3a1d6e,transparent 60%),radial-gradient(600px 420px at -10% 105%,#6b1d4f,transparent 55%),var(--night);color:#fff;font:400 17px/1.45 system-ui,-apple-system,"Noto Sans Bengali","Segoe UI",sans-serif;min-height:100vh;padding:max(18px,env(safe-area-inset-top)) 18px max(26px,env(safe-area-inset-bottom));overflow-x:hidden}
 .wrap{max-width:460px;margin:0 auto;position:relative;z-index:1}
 #bg{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
-.mandala{position:absolute;top:-130px;right:-150px;width:380px;height:380px;opacity:.45;animation:spin 90s linear infinite;pointer-events:none;z-index:0}
+.moon{position:fixed;top:64px;left:12%;width:54px;height:54px;border-radius:50%;box-shadow:inset -15px -6px 0 0 var(--gold),0 0 50px rgba(255,201,74,.12);transform:rotate(-22deg);z-index:-1;pointer-events:none}
+.mandala{position:fixed;top:-150px;right:-160px;width:400px;height:400px;opacity:.4;animation:spin 100s linear infinite;pointer-events:none;z-index:-1;will-change:transform}
 @keyframes spin{to{transform:rotate(360deg)}}
-h1,h2,.brand{font-family:'Baloo Da 2','Hind Siliguri',sans-serif;font-weight:800;line-height:1.05}
-.brand{font-size:22px;display:flex;gap:8px;align-items:center;margin-bottom:26px;color:var(--gold)}
-.brand i{font-style:normal;font-weight:500;color:var(--mute);font-size:16px}
-.hero{font-size:clamp(40px,12vw,58px);letter-spacing:-.5px;margin-bottom:12px}
-.hero em{font-style:normal;color:var(--pink)}
-.sub{color:var(--mute);margin-bottom:22px}
-.btn{display:block;width:100%;border:0;border-radius:16px;padding:15px 18px;font:800 19px 'Baloo Da 2',sans-serif;background:var(--pink);color:#fff;cursor:pointer;box-shadow:0 6px 0 #b82a5e;transition:transform .08s,box-shadow .08s;text-align:center;text-decoration:none}
+.brand{font-weight:800;font-size:20px;color:var(--gold);margin-bottom:10px}
+.big{font-weight:900;font-size:clamp(84px,30vw,130px);line-height:1;background:linear-gradient(120deg,var(--gold),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-2px}
+h1{font-weight:900;font-size:clamp(34px,10vw,46px);line-height:1.05}
+h1 em{font-style:normal;color:var(--pink)}
+.tag{font-size:22px;font-weight:600;margin:6px 0 0}
+.stage{position:relative;height:250px;margin:6px 0 10px}
+.sh{position:absolute;right:4px;top:-6px;font-size:58px;animation:pop 2.4s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes pop{0%,100%{transform:scale(1) rotate(-6deg)}50%{transform:scale(1.18) rotate(8deg)}}
+.fc{position:absolute;background:var(--paper);color:#2a2140;font-weight:600;font-size:15px;padding:10px 13px;border-radius:5px 5px 12px 5px;box-shadow:0 7px 0 rgba(0,0,0,.25);max-width:190px;animation:bob 4s ease-in-out infinite alternate}
+.fc:nth-child(2){animation-delay:-1.3s;animation-duration:5s}.fc:nth-child(3){animation-delay:-2.2s;animation-duration:4.4s}.fc:nth-child(4){animation-delay:-.6s;animation-duration:5.6s}
+@keyframes bob{from{transform:translateY(0) rotate(var(--r))}to{transform:translateY(-14px) rotate(calc(var(--r) * -.6))}}
+.btn{display:block;width:100%;border:0;border-radius:16px;padding:15px 18px;font:800 19px system-ui,sans-serif;background:var(--pink);color:#fff;cursor:pointer;box-shadow:0 6px 0 #b82a5e;text-align:center;text-decoration:none;transition:transform .06s,box-shadow .06s}
 .btn:active{transform:translateY(5px);box-shadow:0 1px 0 #b82a5e}
 .btn.gold{background:var(--gold);color:#3b2a00;box-shadow:0 6px 0 #b8901f}
-.btn.gold:active{box-shadow:0 1px 0 #b8901f}
-.btn.ghost{background:transparent;border:2px solid #4a4290;box-shadow:none;color:#fff;font-size:16px;padding:11px}
-.row{display:flex;gap:10px;margin-top:12px}.row>*{flex:1}
+.btn.ghost{background:transparent;border:2px solid #4a4290;box-shadow:none;font-size:16px;padding:11px}
 input,textarea{width:100%;font:inherit;color:inherit;background:#1f1a45;border:2px solid #3b3380;border-radius:14px;padding:13px 15px;outline:none}
 input:focus,textarea:focus{border-color:var(--gold)}
 .pre{display:flex;align-items:center;background:#1f1a45;border:2px solid #3b3380;border-radius:14px;padding-left:14px;color:var(--mute);margin-bottom:14px}
 .pre input{border:0;background:none;padding-left:2px}
 .small{font-size:14px;color:var(--mute);margin-top:14px;text-align:center}
-.small a,.link{color:var(--gold);cursor:pointer;text-decoration:underline}
-.err{color:#ff8fae;margin-top:10px;min-height:22px;font-size:15px;text-align:center}
-/* chit (paper slip) */
-.chit{background:var(--paper);color:#2a2140;border-radius:6px 6px 14px 6px;padding:18px 18px 16px;position:relative;box-shadow:0 10px 0 rgba(0,0,0,.25),0 18px 40px rgba(0,0,0,.3);
-background-image:repeating-linear-gradient(transparent 0 29px,#e9dcc0 29px 30px);background-position:0 12px}
-.chit::before{content:"";position:absolute;right:0;top:0;border:14px solid transparent;border-top-color:#e2d3b0;border-right-color:#e2d3b0;border-radius:0 6px 0 0}
-.chit textarea{background:none;border:0;color:#2a2140;font-size:19px;line-height:30px;padding:0;height:150px;resize:none}
-.chit .t{white-space:pre-wrap;word-break:break-word;font-size:19px;line-height:30px;min-height:60px}
+.link{color:var(--gold);cursor:pointer;text-decoration:underline}
+.err{color:#ff8fae;margin-top:8px;min-height:20px;font-size:15px;text-align:center}
+.chit{background:var(--paper);color:#2a2140;border-radius:6px 6px 14px 6px;padding:16px 16px 14px;position:relative;box-shadow:0 8px 0 rgba(0,0,0,.25);background-image:repeating-linear-gradient(transparent 0 29px,#e9dcc0 29px 30px);background-position:0 10px}
+.chit textarea{background:none;border:0;color:#2a2140;font-size:19px;line-height:30px;padding:0;height:140px;resize:none}
+.chit .t{white-space:pre-wrap;word-break:break-word;font-size:19px;line-height:30px}
 .chit .meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px;font-size:13px;color:#8a7e9f}
-.moods{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
-.mood{border:2px solid #3b3380;background:transparent;color:#fff;border-radius:999px;padding:6px 13px;font:inherit;font-size:15px;cursor:pointer}
-.mood.on{background:var(--gold);color:#3b2a00;border-color:var(--gold);transform:rotate(-3deg)}
-.slot{height:16px;background:#0b0820;border-radius:99px;margin:22px 8px 0;box-shadow:inset 0 3px 6px #000,0 1px 0 #4a4290}
-.drop{animation:drop .9s cubic-bezier(.6,0,.4,1) forwards}
-@keyframes drop{0%{transform:none}35%{transform:scale(.8,.45) rotate(-2deg)}100%{transform:translateY(210px) scale(.5,.15);opacity:0}}
-.stamp{font:800 54px 'Baloo Da 2',sans-serif;color:var(--pink);border:5px solid var(--pink);border-radius:14px;padding:0 18px;display:inline-block;transform:rotate(-8deg);animation:st .5s .7s cubic-bezier(.3,1.8,.6,1) both}
+.moods{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 16px}
+.mood{border:2px solid #3b3380;background:transparent;color:#fff;border-radius:999px;padding:6px 13px;font:inherit;font-size:16px;cursor:pointer}
+.mood.on{background:var(--gold);color:#3b2a00;border-color:var(--gold)}
+.slot{height:14px;background:#0b0820;border-radius:99px;margin:20px 8px 0;box-shadow:inset 0 3px 6px #000,0 1px 0 #4a4290}
+.drop{animation:drop .6s ease-in forwards}
+@keyframes drop{40%{transform:scale(.85,.5)}100%{transform:translateY(200px) scale(.5,.12);opacity:0}}
+.stamp{font:900 56px system-ui,"Noto Sans Bengali",sans-serif;color:var(--pink);border:5px solid var(--pink);border-radius:14px;padding:0 18px;display:inline-block;transform:rotate(-8deg);animation:st .4s cubic-bezier(.3,1.8,.6,1) both}
 @keyframes st{from{transform:scale(3) rotate(-8deg);opacity:0}to{transform:scale(1) rotate(-8deg);opacity:1}}
-.cta{margin-top:26px;background:linear-gradient(135deg,#3a1d6e,#6b1d4f);border-radius:20px;padding:20px;text-align:center}
-.cta h2{font-size:26px;margin-bottom:6px}
-.msgs .chit{margin-bottom:26px}.msgs .chit:nth-child(odd){transform:rotate(-.8deg)}.msgs .chit:nth-child(even){transform:rotate(.7deg)}
+.cta{margin-top:24px;background:linear-gradient(135deg,#3a1d6e,#6b1d4f);border-radius:20px;padding:20px;text-align:center}
+.cta h2{font-size:26px;margin-bottom:12px}
+.msgs .chit{margin-bottom:24px}
 .new{outline:3px solid var(--pink);outline-offset:3px}
-.acts{display:flex;gap:8px}.acts button{border:0;border-radius:10px;padding:7px 12px;font:600 14px 'Hind Siliguri';cursor:pointer;background:#2a2140;color:#fff}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts button{border:0;border-radius:10px;padding:7px 12px;font:600 14px system-ui;cursor:pointer;background:#2a2140;color:#fff}
 .acts .go{background:var(--pink)}
-.card{background:#1f1a45;border-radius:18px;padding:16px;margin-bottom:18px}
-.linkbox{font-family:'Baloo Da 2';font-size:18px;color:var(--gold);word-break:break-all;margin-bottom:12px}
-.empty{text-align:center;color:var(--mute);padding:36px 10px;font-size:18px}
-.fl{position:fixed;bottom:-40px;font-size:26px;animation:up linear forwards;pointer-events:none;z-index:9}
-@keyframes up{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+.card{background:#1f1a45;border-radius:18px;padding:16px;margin-bottom:16px}
+.linkbox{font-weight:800;font-size:18px;color:var(--gold);word-break:break-all;margin:4px 0 12px}
+.empty{text-align:center;color:var(--mute);padding:30px 10px;font-size:18px}
 .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);background:var(--gold);color:#3b2a00;padding:10px 18px;border-radius:99px;font-weight:600;z-index:10}
-@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important}}
+.fl{position:fixed;bottom:-40px;font-size:26px;animation:up 2.6s linear forwards;pointer-events:none;z-index:9}
+@keyframes up{to{transform:translateY(-110vh) rotate(40deg);opacity:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
 </style></head>
-<body><canvas id="bg"></canvas><div class="mandala" id="md"></div><div class="wrap"><div class="brand">চুপি <i>Chupi</i></div><div id="app"></div></div>
+<body><canvas id="bg"></canvas><div class="moon"></div><div class="mandala" id="md"></div>
+<div class="wrap"><div id="app"></div></div>
 <script>
-const $=s=>document.querySelector(s), app=$('#app'), ls=localStorage, path=location.pathname;
+const $=s=>document.querySelector(s),app=$('#app'),ls=localStorage,path=location.pathname;
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const api=async(u,b)=>{try{const r=await fetch('/api/'+u,{method:b?'POST':'GET',headers:{'content-type':'application/json','x-name':ls.cn||'','x-key':ls.ck||''},body:b?JSON.stringify(b):undefined});return {ok:r.ok,...(await r.json())}}catch(e){return{ok:false,error:'No connection'}}};
-const toast=t=>{const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2200)};
+const api=async(u,b)=>{try{const r=await fetch('/api/'+u,{method:b?'POST':'GET',headers:{'content-type':'application/json','x-name':ls.cn||'','x-key':ls.ck||''},body:b?JSON.stringify(b):undefined});return{ok:r.ok,...(await r.json())}}catch(e){return{ok:false,error:'No connection'}}};
+const toast=t=>{const d=document.createElement('div');d.className='toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2000)};
 const myLink=()=>location.origin+'/u/'+ls.cn;
-function floaty(list){for(let i=0;i<14;i++){const f=document.createElement('div');f.className='fl';f.textContent=list[i%list.length];f.style.left=Math.random()*95+'%';f.style.animationDuration=2+Math.random()*2+'s';document.body.appendChild(f);setTimeout(()=>f.remove(),4200)}}
-function ago(t){const s=(Date.now()-t)/1000;if(s<60)return'just now';if(s<3600)return~~(s/60)+'m ago';if(s<86400)return~~(s/3600)+'h ago';return~~(s/86400)+'d ago'}
+const floaty=l=>{for(let i=0;i<10;i++){const f=document.createElement('div');f.className='fl';f.textContent=l[i%l.length];f.style.left=Math.random()*92+'%';f.style.animationDelay=Math.random()*.5+'s';document.body.appendChild(f);setTimeout(()=>f.remove(),3300)}};
+const ago=t=>{const s=(Date.now()-t)/1000;return s<60?'just now':s<3600?~~(s/60)+'m ago':s<86400?~~(s/3600)+'h ago':~~(s/86400)+'d ago'};
 
-/* ---------- HOME ---------- */
+/* HOME */
 function home(){
- if(ls.cn&&ls.ck){app.innerHTML=`<h1 class="hero">Welcome back, <em>${esc(ls.cn)}</em></h1><p class="sub">Your friends are being brave. Go see.</p><a class="btn" href="/inbox">Open my inbox</a>`;return}
- app.innerHTML=`<h1 class="hero">Tell me something. <em>Nobody</em> will know.</h1>
- <p class="sub">Get your own secret link. Put it on your WhatsApp status. Your friends send confessions, crushes and roasts. Only you can read them.</p>
- <div class="pre">chupi/u/<input id="n" placeholder="yourname" maxlength="20" autocapitalize="off" autocomplete="off"></div>
- <button class="btn" id="mk">Get my Chupi link</button><div class="err" id="e"></div>
- <p class="small">Already have one? <span class="link" id="li">Log in with your key</span></p>`;
- $('#mk').onclick=async()=>{const r=await api('create',{name:$('#n').value});if(!r.ok){$('#e').textContent=r.error;return}ls.cn=r.name;ls.ck=r.key;location.href='/inbox?new=1'};
- $('#li').onclick=async()=>{const n=prompt('Your Chupi name');const k=n&&prompt('Your secret key');if(!k)return;const r=await fetch('/api/login',{method:'POST',body:JSON.stringify({name:n,key:k})});if(r.ok){ls.cn=n.toLowerCase();ls.ck=k;location.href='/inbox'}else toast('Wrong name or key')};
+ const has=ls.cn&&ls.ck;
+ app.innerHTML=`<div class="brand">Chupi</div><div class="big">চুপি</div><div class="tag">Say it. Stay unseen.</div>
+ <div class="stage"><div class="sh">🤫</div>
+  <div class="fc" style="--r:-5deg;left:0;top:30px">i have a crush on you 💘</div>
+  <div class="fc" style="--r:4deg;right:0;top:92px">your laugh is my fav sound</div>
+  <div class="fc" style="--r:-3deg;left:22px;top:150px">sorry about last year 🙏</div>
+  <div class="fc" style="--r:6deg;right:14px;top:196px">you're way cooler than you think</div></div>
+ ${has?`<a class="btn" href="/inbox">Open my inbox</a>`:`<div class="pre">chupi/u/<input id="n" placeholder="yourname" maxlength="20" autocapitalize="off" autocomplete="off"></div><button class="btn" id="mk">Get my link</button><div class="err" id="e"></div><p class="small"><span class="link" id="li">I already have a key</span></p>`}`;
+ if(has)return;
+ $('#mk').onclick=async()=>{$('#mk').textContent='...';const r=await api('create',{name:$('#n').value});if(!r.ok){$('#e').textContent=r.error;$('#mk').textContent='Get my link';return}ls.cn=r.name;ls.ck=r.key;location.href='/inbox?new=1'};
+ $('#li').onclick=async()=>{const n=prompt('Your Chupi name'),k=n&&prompt('Your secret key');if(!k)return;const r=await fetch('/api/login',{method:'POST',body:JSON.stringify({name:n,key:k})});if(r.ok){ls.cn=n.toLowerCase();ls.ck=k;location.href='/inbox'}else toast('Wrong name or key')};
 }
 
-/* ---------- SEND (public) ---------- */
-const MOODS=['💬 Anything','💘 Crush','🤫 Confession','🔥 Roast','🙏 Sorry','🥹 Compliment'];
-async function send(name){
- const p=await api('profile/'+name);
- if(!p.ok){app.innerHTML=`<h1 class="hero">No Chupi here.</h1><p class="sub">This link doesn't exist. Make your own instead.</p><a class="btn" href="/">Get my Chupi link</a>`;return}
+/* SEND */
+const MOODS=['💬 Anything','💘 Crush','🤫 Secret','🔥 Roast','🙏 Sorry','🥹 Love'];
+function send(name){
  let mood='💬';
- app.innerHTML=`<h1 class="hero">Message <em>${esc(name)}</em> secretly</h1><p class="sub">${esc(p.prompt)}</p>
- <div id="box"><div class="chit" id="chit"><textarea id="tx" maxlength="600" placeholder="Write here. ${esc(name)} will never see your name."></textarea><div class="meta"><span>🔒 100% anonymous</span><span id="ct">0/600</span></div></div><div class="slot"></div>
+ app.innerHTML=`<h1>Tell <em>${esc(name)}</em> a secret</h1><p class="small" id="pm" style="text-align:left;margin:6px 0 16px">Say something to me secretly 🤫</p>
+ <div id="box"><div class="chit" id="chit"><textarea id="tx" maxlength="600" placeholder="Type here. No name. No trace."></textarea><div class="meta"><span>🔒 anonymous</span><span id="ct">0/600</span></div></div><div class="slot"></div>
  <div class="moods">${MOODS.map((m,i)=>`<button class="mood${i?'':' on'}" data-m="${m.split(' ')[0]}">${m}</button>`).join('')}</div>
- <button class="btn" id="sd">Drop it in secretly</button><div class="err" id="e"></div></div>`;
+ <button class="btn" id="sd">Drop it in 🤫</button><div class="err" id="e"></div></div>`;
+ api('profile/'+name).then(p=>{if(p.ok)$('#pm').textContent=p.prompt;else if(p.error==='not found')app.innerHTML=`<div class="big" style="font-size:90px">?</div><h1>No Chupi here</h1><p class="small" style="margin:10px 0 20px">This link doesn't exist.</p><a class="btn" href="/">Make my own</a>`});
  document.querySelectorAll('.mood').forEach(b=>b.onclick=()=>{document.querySelectorAll('.mood').forEach(x=>x.classList.remove('on'));b.classList.add('on');mood=b.dataset.m});
  $('#tx').oninput=e=>$('#ct').textContent=e.target.value.length+'/600';
  $('#sd').onclick=async()=>{const text=$('#tx').value.trim();if(!text){$('#e').textContent='Write something first';return}
   $('#sd').disabled=true;const r=await api('send/'+name,{text,mood});
   if(!r.ok){$('#e').textContent=r.error;$('#sd').disabled=false;return}
   $('#chit').classList.add('drop');floaty(['🤫','💌','✨','💘']);
-  setTimeout(()=>{$('#box').innerHTML=`<div style="text-align:center;margin:30px 0 10px"><div class="stamp">চুপ!</div><h2 style="font-size:28px;margin-top:20px">Sent. ${esc(name)} will never know it was you.</h2></div>
-  <div class="cta"><h2>Now your turn 👀</h2><p class="sub" style="margin-bottom:14px">Get your own link and see what your friends really think.</p><a class="btn gold" href="/">Make my Chupi link</a></div>
-  <button class="btn ghost" style="margin-top:16px" onclick="location.reload()">Send another</button>`},1000)};
+  setTimeout(()=>{$('#box').innerHTML=`<div style="text-align:center;margin:26px 0 8px"><div class="stamp">চুপ!</div><h2 style="font-size:26px;margin-top:18px">Sent. ${esc(name)} will never know.</h2></div>
+  <div class="cta"><h2>Your turn 👀</h2><a class="btn gold" href="/">Get my own Chupi link</a></div>
+  <button class="btn ghost" style="margin-top:16px" onclick="location.reload()">Send another</button>`},650)};
 }
 
-/* ---------- INBOX (owner) ---------- */
+/* INBOX */
 let known=-1;
-async function inbox(){
+function inbox(){
  if(!ls.cn||!ls.ck){location.href='/';return}
  const first=location.search.includes('new=1');
- app.innerHTML=`<div class="card"><div class="small" style="margin:0 0 6px;text-align:left">Your secret link. Put it on your status:</div><div class="linkbox">${esc(myLink())}</div>
- <div class="acts" style="flex-wrap:wrap"><button class="go" id="shl">📲 Share to status</button><button id="cp">Copy link</button><button id="al">🔔 Alerts</button></div></div>
- ${first?`<div class="card" style="border:2px dashed var(--gold)"><b>Save your secret key:</b><div class="linkbox" style="margin:6px 0">${esc(ls.ck)}</div><span class="small" style="margin:0;text-align:left;display:block">You need it to log in on another phone. Don't share it.</span></div>`:''}
- <div class="card"><div class="small" style="margin:0 0 6px;text-align:left">Your question (friends see this):</div><input id="pr" maxlength="80"><button class="btn ghost" id="sv" style="margin-top:8px">Save question</button></div>
- <div id="list" class="msgs"></div><p class="small"><span class="link" id="lo">Log out</span></p>`;
- $('#cp').onclick=()=>{navigator.clipboard.writeText(myLink());toast('Link copied')};
- $('#shl').onclick=()=>{const d={title:'Chupi',text:'Send me an anonymous message 🤫',url:myLink()};navigator.share?navigator.share(d).catch(()=>{}):($('#cp').click())};
- $('#al').onclick=async()=>{if(!('Notification' in window))return toast('Alerts not supported here');const r=await Notification.requestPermission();toast(r==='granted'?'Alerts on while this page is open':'Alerts blocked')};
+ app.innerHTML=`<div class="card"><div class="small" style="margin:0;text-align:left">Put this on your status</div><div class="linkbox">${esc(myLink())}</div>
+ <div class="acts"><button class="go" id="shl">📲 Share</button><button id="cp">Copy</button><button id="al">🔔 Alerts</button></div></div>
+ ${first?`<div class="card" style="border:2px dashed var(--gold)"><b>Your secret key (save it!)</b><div class="linkbox" style="margin:6px 0 0">${esc(ls.ck)}</div></div>`:''}
+ <div id="list" class="msgs"></div>
+ <details class="card"><summary style="cursor:pointer">Settings</summary><input id="pr" maxlength="80" style="margin:12px 0 8px" placeholder="Your question"><button class="btn ghost" id="sv">Save question</button><p class="small"><span class="link" id="lo">Log out</span></p></details>`;
+ $('#cp').onclick=()=>{navigator.clipboard.writeText(myLink());toast('Copied')};
+ $('#shl').onclick=()=>{navigator.share?navigator.share({title:'Chupi',text:'Send me an anonymous message 🤫',url:myLink()}).catch(()=>{}):$('#cp').click()};
+ $('#al').onclick=async()=>{if(!('Notification' in window))return toast('Not supported here');toast((await Notification.requestPermission())==='granted'?'Alerts on (page open)':'Blocked')};
  $('#sv').onclick=async()=>{await api('prompt',{prompt:$('#pr').value});toast('Saved')};
  $('#lo').onclick=()=>{if(confirm('Log out? Keep your key safe!')){ls.clear();location.href='/'}};
- load(true);setInterval(()=>load(false),12000);
+ try{const c=JSON.parse(ls.cache||'null');if(c)draw(c.msgs)}catch(e){}
+ load(true);setInterval(()=>{if(!document.hidden)load(false)},15000);
+}
+function draw(msgs){
+ const L=$('#list');
+ L.innerHTML=msgs.length?msgs.map(m=>`<div class="chit ${m.read?'':'new'}"><div class="t">${esc(m.text)}</div><div class="meta"><span>${m.mood} ${ago(m.ts)}</span><div class="acts"><button class="go" data-s="${m.id}">Post</button><button data-d="${m.id}">🗑</button></div></div></div>`).join(''):`<div class="empty">Quiet for now.<br>Post your link and wait 🤫</div>`;
+ L.querySelectorAll('[data-d]').forEach(b=>b.onclick=async()=>{b.closest('.chit').remove();await api('del',{id:b.dataset.d});load(false)});
+ L.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>story(msgs.find(x=>x.id==b.dataset.s)));
 }
 async function load(init){
  const r=await api('inbox');if(!r.ok){if(r.error==='unauthorized'){ls.clear();location.href='/'}return}
  if(init)$('#pr').value=r.prompt;
- const unread=r.msgs.filter(m=>!m.read);
- document.title=(unread.length?'('+unread.length+') ':'')+'Chupi · চুপি';
- if(known>=0&&r.msgs.length>known){navigator.vibrate&&navigator.vibrate(200);
-  if(window.Notification&&Notification.permission==='granted')new Notification('Chupi 🤫',{body:'Someone sent you a secret message'});}
- known=r.msgs.length;
- const L=$('#list');
- L.innerHTML=r.msgs.length?r.msgs.map(m=>`<div class="chit ${m.read?'':'new'}"><div class="t">${esc(m.text)}</div><div class="meta"><span>${m.mood} · ${ago(m.ts)}</span><div class="acts"><button class="go" data-s="${m.id}">Post to status</button><button data-d="${m.id}">🗑</button></div></div></div>`).join(''):`<div class="empty">No messages yet.<br>Put your link on your status and wait. 🤫</div>`;
- L.querySelectorAll('[data-d]').forEach(b=>b.onclick=async()=>{await api('del',{id:b.dataset.d});load(false)});
- L.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{const m=r.msgs.find(x=>x.id==b.dataset.s);storyCard(m)});
- if(unread.length&&init)setTimeout(()=>api('read',{}),4000);
+ const un=r.msgs.filter(m=>!m.read).length;document.title=(un?'('+un+') ':'')+'Chupi · চুপি';
+ if(known>=0&&r.msgs.length>known){navigator.vibrate&&navigator.vibrate(200);if(window.Notification&&Notification.permission==='granted')new Notification('Chupi 🤫',{body:'Someone sent you a secret'})}
+ known=r.msgs.length;ls.cache=JSON.stringify({msgs:r.msgs.slice(0,30)});draw(r.msgs);
+ if(un&&init)setTimeout(()=>api('read',{}),4000);
 }
 
-/* ---------- STORY IMAGE ---------- */
-async function storyCard(m){
- try{await document.fonts.load('800 60px "Baloo Da 2"');await document.fonts.load('400 50px "Hind Siliguri"')}catch(e){}
- const c=document.createElement('canvas');c.width=1080;c.height=1920;const x=c.getContext('2d');
+/* STORY IMAGE */
+function story(m){
+ const F='system-ui,"Noto Sans Bengali",sans-serif',c=document.createElement('canvas');c.width=1080;c.height=1920;const x=c.getContext('2d');
  const g=x.createLinearGradient(0,0,1080,1920);g.addColorStop(0,'#15112e');g.addColorStop(.6,'#4a1d6e');g.addColorStop(1,'#ff4f8b');x.fillStyle=g;x.fillRect(0,0,1080,1920);
- x.textAlign='center';x.fillStyle='#ffc94a';x.font='800 72px "Baloo Da 2"';x.fillText('somebody sent me this 🤫',540,300);
- x.font='400 50px "Hind Siliguri"';const maxW=800,words=m.text.split(/\s+/),lines=[];let cur='';
- for(const w of words){const t=cur?cur+' '+w:w;if(x.measureText(t).width>maxW&&cur){lines.push(cur);cur=w}else cur=t}lines.push(cur);
- const shown=lines.slice(0,14),h=shown.length*72+150,y0=Math.max(420,960-h/2);
+ x.textAlign='center';x.fillStyle='#ffc94a';x.font='800 70px '+F;x.fillText('somebody sent me this 🤫',540,300);
+ x.font='500 50px '+F;const words=m.text.split(/\s+/),lines=[];let cur='';
+ for(const w of words){const t=cur?cur+' '+w:w;if(x.measureText(t).width>800&&cur){lines.push(cur);cur=w}else cur=t}lines.push(cur);
+ const sh=lines.slice(0,14),h=sh.length*72+150,y0=Math.max(420,960-h/2);
  x.save();x.translate(540,y0+h/2);x.rotate(-.025);x.fillStyle='rgba(0,0,0,.3)';x.fillRect(-460,-h/2+16,920,h);x.fillStyle='#fffaf0';x.fillRect(-460,-h/2,920,h);
- x.fillStyle='#2a2140';x.textAlign='left';x.font='400 50px "Hind Siliguri"';shown.forEach((l,i)=>x.fillText(l+(i==13&&lines.length>14?'…':''),-400,-h/2+110+i*72));
- x.font='56px sans-serif';x.fillText(m.mood,-400,h/2-30);x.restore();
- x.textAlign='center';x.fillStyle='#fff';x.font='800 64px "Baloo Da 2"';x.fillText('Your turn. Send me yours 👇',540,1560);
- x.fillStyle='#ffc94a';x.font='800 56px "Baloo Da 2"';x.fillText(location.host+'/u/'+ls.cn,540,1650);
- x.fillStyle='rgba(255,255,255,.6)';x.font='500 40px "Baloo Da 2"';x.fillText('চুপি · Chupi',540,1800);
+ x.fillStyle='#2a2140';x.textAlign='left';x.font='500 50px '+F;sh.forEach((l,i)=>x.fillText(l+(i==13&&lines.length>14?'…':''),-400,-h/2+110+i*72));
+ x.font='56px '+F;x.fillText(m.mood,-400,h/2-30);x.restore();
+ x.textAlign='center';x.fillStyle='#fff';x.font='800 62px '+F;x.fillText('Your turn. Send me yours 👇',540,1560);
+ x.fillStyle='#ffc94a';x.font='800 54px '+F;x.fillText(location.host+'/u/'+ls.cn,540,1650);
+ x.fillStyle='rgba(255,255,255,.6)';x.font='700 40px '+F;x.fillText('চুপি · Chupi',540,1800);
  c.toBlob(async b=>{const f=new File([b],'chupi.png',{type:'image/png'});
   if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],text:'Send me an anonymous message 🤫 '+myLink()});return}catch(e){if(e.name==='AbortError')return}}
   const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='chupi.png';a.click();toast('Saved. Add it to your status!')});
 }
 
-
-/* ---------- ANIMATED ART ---------- */
+/* ART: static mandala + light canvas */
 (()=>{
- const md=$('#md');let s='<svg viewBox="-100 -100 200 200" fill="none" stroke-width="1">';
- for(let r=0;r<3;r++){const n=[12,16,24][r],len=[92,70,48][r],w=[16,12,8][r],col=['#ffc94a','#ff4f8b','#ffc94a'][r];
-  for(let i=0;i<n;i++)s+=`<ellipse cx="0" cy="${-len/2}" rx="${w}" ry="${len/2}" stroke="${col}" transform="rotate(${i*360/n})"/>`}
- s+='<circle r="14" stroke="#ff4f8b"/><circle r="5" fill="#ffc94a"/></svg>';md.innerHTML=s;
+ let s='<svg viewBox="-100 -100 200 200" fill="none" stroke-width="1">';
+ [[12,92,16,'#ffc94a'],[16,66,11,'#ff4f8b']].forEach(([n,len,w,col])=>{for(let i=0;i<n;i++)s+=`<ellipse cy="${-len/2}" rx="${w}" ry="${len/2}" stroke="${col}" transform="rotate(${i*360/n})"/>`});
+ $('#md').innerHTML=s+'<circle r="12" stroke="#ff4f8b"/><circle r="4" fill="#ffc94a"/></svg>';
  if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
- const c=$('#bg'),x=c.getContext('2d'),R=Math.random,D=Math.min(devicePixelRatio||1,2);let W,H;
- const rs=()=>{W=innerWidth;H=innerHeight;c.width=W*D;c.height=H*D;x.setTransform(D,0,0,D,0,0)};rs();addEventListener('resize',rs);
- const stars=[...Array(70)].map(()=>({x:R(),y:R(),r:R()*1.1+.3,p:R()*6}));
- const ff=[...Array(34)].map(()=>({x:R()*W,y:R()*H,a:R()*6,sp:.15+R()*.4,p:R()*6,r:2+R()*3,col:R()<.5?'255,201,74':'255,79,139'}));
- const ch=[...Array(7)].map(()=>({x:R()*W,y:R()*H,rot:R()*6,vr:(R()-.5)*.012,vy:-(.1+R()*.25),z:12+R()*14,p:R()*6}));
- const burst=[];
- const glow=(px,py,r,col,a)=>{const g=x.createRadialGradient(px,py,0,px,py,r*4);g.addColorStop(0,`rgba(${col},${a})`);g.addColorStop(1,`rgba(${col},0)`);x.fillStyle=g;x.beginPath();x.arc(px,py,r*4,0,7);x.fill()};
- addEventListener('pointerdown',e=>{for(let i=0;i<14;i++){const a=R()*6.28,v=1+R()*3;burst.push({x:e.clientX,y:e.clientY,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,col:R()<.5?'255,201,74':'255,79,139'})}});
- let t=0;(function draw(){t+=.016;x.clearRect(0,0,W,H);
-  // crescent moon
-  const mx=W*.16,my=110;glow(mx,my,26,'255,201,74',.25);x.fillStyle='#ffc94a';x.beginPath();x.arc(mx,my,30,0,7);x.fill();
-  x.globalCompositeOperation='destination-out';x.beginPath();x.arc(mx+14,my-8,27,0,7);x.fill();x.globalCompositeOperation='source-over';
-  stars.forEach(s=>{x.fillStyle=`rgba(255,255,255,${.3+.5*Math.sin(t*1.5+s.p)**2})`;x.fillRect(s.x*W,s.y*H,s.r,s.r)});
-  ch.forEach(o=>{o.y+=o.vy;o.rot+=o.vr;o.x+=Math.sin(t+o.p)*.3;if(o.y<-40){o.y=H+40;o.x=R()*W}
-   x.save();x.translate(o.x,o.y);x.rotate(o.rot);x.globalAlpha=.28;x.fillStyle='#fffaf0';x.fillRect(-o.z/2,-o.z*.35,o.z,o.z*.7);
-   x.fillStyle='#e2d3b0';x.beginPath();x.moveTo(o.z/2-o.z*.25,-o.z*.35);x.lineTo(o.z/2,-o.z*.35);x.lineTo(o.z/2,-o.z*.35+o.z*.25);x.fill();
-   x.strokeStyle='#c9b88f';x.lineWidth=1;for(let i=1;i<3;i++){x.beginPath();x.moveTo(-o.z/2+3,-o.z*.35+i*o.z*.2);x.lineTo(o.z/2-5,-o.z*.35+i*o.z*.2);x.stroke()}x.restore()});
-  ff.forEach(f=>{f.a+=(R()-.5)*.15;f.x+=Math.cos(f.a)*f.sp;f.y+=Math.sin(f.a)*f.sp-.05;if(f.x<-20)f.x=W+20;if(f.x>W+20)f.x=-20;if(f.y<-20)f.y=H+20;if(f.y>H+20)f.y=-20;
-   const al=.25+.75*Math.max(0,Math.sin(t*1.8+f.p));glow(f.x,f.y,f.r,f.col,al*.55);x.fillStyle=`rgba(${f.col},${al})`;x.beginPath();x.arc(f.x,f.y,f.r*.5,0,7);x.fill()});
-  for(let i=burst.length-1;i>=0;i--){const b=burst[i];b.x+=b.vx;b.y+=b.vy;b.vx*=.96;b.vy*=.96;b.l-=.02;if(b.l<=0){burst.splice(i,1);continue}glow(b.x,b.y,3,b.col,b.l*.8)}
-  requestAnimationFrame(draw)})();
+ const c=$('#bg'),x=c.getContext('2d'),R=Math.random;let W,H;
+ const rs=()=>{W=c.width=innerWidth;H=c.height=innerHeight};rs();addEventListener('resize',rs);
+ const sp=col=>{const o=document.createElement('canvas');o.width=o.height=48;const q=o.getContext('2d'),g=q.createRadialGradient(24,24,0,24,24,24);g.addColorStop(0,`rgba(${col},1)`);g.addColorStop(.25,`rgba(${col},.4)`);g.addColorStop(1,`rgba(${col},0)`);q.fillStyle=g;q.fillRect(0,0,48,48);return o};
+ const S=[sp('255,201,74'),sp('255,79,139')];
+ const st=[...Array(36)].map(()=>[R()*W,R()*H*.7,R()*1.3+.4,R()*6]);
+ const ff=[...Array(16)].map(()=>({x:R()*W,y:R()*H,a:R()*6,v:.2+R()*.4,p:R()*6,r:10+R()*14,i:R()<.5?0:1}));
+ const ch=[...Array(5)].map(()=>({x:R()*W,y:R()*H,r:R()*6,vr:(R()-.5)*.01,vy:.15+R()*.25,z:14+R()*12,p:R()*6}));
+ const bu=[];addEventListener('pointerdown',e=>{for(let i=0;i<10;i++){const a=R()*6.28,v=1+R()*3;bu.push({x:e.clientX,y:e.clientY,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,i:R()<.5?0:1})}});
+ let t=0,last=0;
+ (function f(now){requestAnimationFrame(f);if(document.hidden||now-last<33)return;last=now;t+=.033;
+  x.clearRect(0,0,W,H);
+  for(const s of st){x.globalAlpha=.25+.55*Math.sin(t*1.5+s[3])**2;x.fillStyle='#fff';x.fillRect(s[0],s[1],s[2],s[2])}
+  x.globalAlpha=.3;
+  for(const o of ch){o.y-=o.vy;o.r+=o.vr;o.x+=Math.sin(t+o.p)*.4;if(o.y<-30){o.y=H+30;o.x=R()*W}x.save();x.translate(o.x,o.y);x.rotate(o.r);x.fillStyle='#fffaf0';x.fillRect(-o.z/2,-o.z*.35,o.z,o.z*.7);x.restore()}
+  for(const o of ff){o.a+=(R()-.5)*.2;o.x+=Math.cos(o.a)*o.v;o.y+=Math.sin(o.a)*o.v-.05;if(o.x<-20)o.x=W+20;if(o.x>W+20)o.x=-20;if(o.y<-20)o.y=H+20;if(o.y>H+20)o.y=-20;
+   x.globalAlpha=.15+.85*Math.max(0,Math.sin(t*1.8+o.p));x.drawImage(S[o.i],o.x-o.r,o.y-o.r,o.r*2,o.r*2)}
+  for(let i=bu.length-1;i>=0;i--){const b=bu[i];b.x+=b.vx;b.y+=b.vy;b.vx*=.95;b.vy*=.95;b.l-=.04;if(b.l<=0){bu.splice(i,1);continue}x.globalAlpha=b.l;x.drawImage(S[b.i],b.x-12,b.y-12,24,24)}
+  x.globalAlpha=1})(0);
 })();
 
 const m=path.match(/^\/u\/([a-z0-9_]+)\/?$/i);
